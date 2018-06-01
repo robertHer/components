@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Duplex } from 'stream';
 
 @Component({
   // selector: 'app-servers',
@@ -13,6 +14,8 @@ export class ServersComponent implements OnInit {
   allowNewServer: boolean = false;
   serverCreationStatus:string = 'No server was created';
   serverName:string;
+  serverCreated:boolean = false;
+  servers = ['testserver', 'testserver2']
   constructor() { 
     setTimeout(() => {
       this.allowNewServer = true;
@@ -24,7 +27,9 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer(){
-this.serverCreationStatus = 'new server was created. Name is' + this.serverName;
+    this.serverCreated = true;
+    this.serverCreationStatus = 'new server was created. Name is' + this.serverName; 
+    this.servers.push()
   }
 
   onUpdateServerName(event:Event){
